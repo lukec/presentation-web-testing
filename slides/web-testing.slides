@@ -1,0 +1,298 @@
+Open Web Testing
+{{#c|☻}}{{#t|Luke Closs}}{{#c|☻}}
+----
+Brought
+to you by:
+----
+℧ℕℹⅭↀↁℰ
+{{#s|(Totally gratuitous)}}
+----
+And the
+Sporxahashi
+Method
+----
+Thank you
+Ingy Döt Net
+----
+{{#h|Agenda:}}
+ {{#b|➸ Theory}}
+ {{#b|➸ Examples}}
+ {{#b|➸ Questions}}
+----
+My Automation 
+Background
+ ➸ Cellular ☏ {{#b|Telos}}
+ ➸ Email {{#b|ActiveState/Sophos}}
+ ➸ Web {{#b|Socialtext}}
+----
+{{#c|Terms}}
+----
+Manual
+Test
+----
+Unit
+Test
+----
+ ➸ Automation (A8N)
+ ➸ Integration Test
+ ➸ System Test
+----
+{{#c|Goal}}
+----
+Provide info about the
+{{#t|state of the software}}
+to decision makers
+----
+{{#c|Historical}}
+{{#c|Context}}
+----
+{{#c|Long time ago}}
+ {{#b|➸ Desktop apps}}
+----
+☝ Proprietary Tools
+----
+{{#c|Web 1.0}}
+ {{#b|➸ Browsing, Forms}}
+----
+☝ Scripts!
+----
+{{#c|Web 1.5}}
+ {{#b|➸ AJAX, Javascript}}
+----
+☝ Selenium
+----
+{{#c|Web 2.0}}
+ {{#b|➸ Web, HTTP, RSS, SMTP, Jabber, ...}}
+----
+☝ BDD?
+----
+Test the value
+to the business.
+----
+End result
+{{#b|aka}}
+Black box
+----
+{{#c|✍Tools☂}}
+----
+Choose a tool
+that fits your
+context
+----
+Example Toolchains
+----
+{{#c|"Ruby Style"}}
+ {{#b|➸ Cucumber}}
+ {{#b|➸ Written by devs}}
+----
+{{#att|Scenario:}} Add two numbers
+ {{#tag|Given}} I have entered 50
+ {{#tag|And}} I have entered 70
+ {{#tag|When}} I press add
+ {{#tag|Then}} The result should be 120
+----
+{{#c|"Sophos Style"}}
+ {{#b|➸ YAML}}
+ {{#b|➸ Test::A8N}}
+ {{#b|➸ Written by QA}}
+----
+ NAME:    Admin changes their timezone
+ ID:      admin_changes_tz
+ SUMMARY: Admins need to change their timezone.
+----
+ PRECONDITIONS:
+ - ensure user exists: admin
+ - ensure timezone is: America/Vancouver
+----
+ INSTRUCTIONS:
+     - login:
+         username: admin
+         password: testpass
+     - goto page: Account Settings
+     - verify current timezone is: America/Vancouver
+     - change timezone to: Australia/Brisbane
+     - verify current timezone is: Australia/Brisbane
+----
+ POSTCONDITIONS:
+  - ensure timezone is: America/Vancouver
+----
+{{#c|"Wikitest Style"}}
+ {{#b|➸ Wiki Tables}}
+ {{#b|➸ Keyword Driven}}
+ {{#b|➸ Based on Selenese}}
+ {{#b|➸ Written by Dev and QA}}
+----
+ {{#pre|| open      | /login      |}}
+ {{#pre|| title-is  | Awesometown |}}
+ {{#pre|| text-like | //body      | Welcome to Awesometown |}}
+----
+{{#c|Key Points}}
+----
+No contitionals
+or looping
+----
+Insulate Test Logic
+from {{#i|Test code}}
+----
+Risk Management
+----
+So we can
+☾ ✧ ☄
+sleep well
+----
+{{#c|Remember:}}
+There are no
+"Best Practices"
+----
+{{#c|Just:}}
+Better or Worse
+{{#i|for a given context}}
+----
+{{#c|5 Guidelines}}
+----
+❶ {{#i|Keep Up}} 
+with development
+----
+❷ Make Tradeoffs
+{{#i|with intention}}
+----
+❸ Do the best
+{{#i|with what you have}}
+----
+Be resourceful
+with your team
+----
+Put people in a
+position they get
+excited about
+----
+❹ Balanced 
+Breakfast
+----
+❺ Pay 
+Attention
+----
+Periodical
+Reflection
+----
+Refactor 
+your tests!
+----
+A8N costs $$$
+(So be pragmatic)
+----
+Questions‽
+----
+{{#c|Practical}}
+{{#c|Section}}
+----
+{{#c|OR:}} How our
+Breakfast
+has changed:
+----
+{{#c|Startup Time}}
+ 1 QA
+----
+Unit Tests
+Manual Testing
+Dogfood
+----
+{{#c|Dawn of Selenium}}
+ 1.5 QA
+----
+Selenium IDE
+ ☺ Easy to record
+ ☹ Hard to do anything else
+----
+Non-technical staff
+can write tests
+(but limiting!)
+----
+{{#c|Wikitest}}
+{{#c|Revolution}}
+----
+Built on Selenese
+ {{#b|➽ abstraction}}
+ {{#b|➽ less duplication}}
+ {{#b|➽ standardization}}
+----
+Keyword
+driven
+testing
+{{#s|FTW!}}
+----
+Express Tests
+in a Wiki Table
+----
+{{image src="wikitests.png" width="1234" height="392"}}
+----
+Suits the Team
+ {{#b|➺ Dogfood}}
+ {{#b|➺ Simple edit interface}}
+ {{#b|➺ Low barrier}}
+----
+Read the wiki table
+Execute the commands
+Produce results page
+----
+{{#c|Industrial}}
+Wikitest
+{{#c|Revolution}}
+----
+Interns++
+----
+Jump to 6,000
+test steps
+----
+A8N lags
+Development
+----
+But ...
+----
+No more
+regressions!
+----
+Overheard: 
+{{#b|❝When was the last}}
+{{#b|bug we shipped?❞}}
+{{#s|(nobody knew)}}
+----
+{{#c|The Great}}
+{{#c|Depression}}
+{{#b|(QA layoffs)}}
+----
+Team loses QA
+
+{{#i|What to do?}}
+----
+{{#c|Answer:}}
+Change our
+practice
+----
+{{#c|Team agrees:}}
+Devs will write
+Sunny day A8N
+----
+Make the best
+out of what 
+we have.
+----
+QA can focus
+on exceptions
+----
+Dev can write
+good A8N +
+Infrastructure
+----
+WIN-WIN-WIN
+----
+EOM
+----
+☃ Questions⁇ ☃
+----
+Links
+ ☑ {{#b|http://ingy.net}}
+ ♘ {{#b|http://cukes.info}}
+ ♨ {{#b|http://tinyurl.com/wikitests}}
+ ✈ {{#b|/sporx/}}
+ ♽ {{#b|/Test::A8N/}}

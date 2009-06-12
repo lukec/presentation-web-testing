@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="css/sporx.css" type="text/css"?>
+
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" id="presentation" xmlns:html="http:/www.w3.org/1999/xhtml" orient="vertical" onkeypress="Presentation.onKeyPress(event);">
+
+<html:textarea id="builtinCode" style="visibility: collapse">
+Open Web Testing
+{{#c|☻}}{{#t|Luke Closs}}{{#c|☻}}
+----
+Brought
+to you by:
+----
+℧ℕℹⅭↀↁℰ
+{{#s|(Totally gratuitous)}}
+----
+And the
+Sporxahashi
+Method
+----
+Thank you
+Ingy Döt Net
+----
+{{#h|Agenda:}}
+ {{#b|➸ Theory}}
+ {{#b|➸ Examples}}
+ {{#b|➸ Questions}}
+----
+My Automation 
+Background
+ ➸ Cellular ☏ {{#b|Telos}}
+ ➸ Email {{#b|ActiveState/Sophos}}
+ ➸ Web {{#b|Socialtext}}
+----
+{{#c|Terms}}
+----
+Manual
+Test
+----
+Unit
+Test
+----
+ ➸ Automation (A8N)
+ ➸ Integration Test
+ ➸ System Test
+----
+{{#c|Goal}}
+----
+Provide info about the
+{{#t|state of the software}}
+to decision makers
+----
+{{#c|Historical}}
+{{#c|Context}}
+----
+{{#c|Long time ago}}
+ {{#b|➸ Desktop apps}}
+----
+☝ Proprietary Tools
+----
+{{#c|Web 1.0}}
+ {{#b|➸ Browsing, Forms}}
+----
+☝ Scripts!
+----
+{{#c|Web 1.5}}
+ {{#b|➸ AJAX, Javascript}}
+----
+☝ Selenium
+----
+{{#c|Web 2.0}}
+ {{#b|➸ Web, HTTP, RSS, SMTP, Jabber, ...}}
+----
+☝ BDD?
+----
+Test the value
+to the business.
+----
+End result
+{{#b|aka}}
+Black box
+----
+{{#c|✍Tools☂}}
+----
+Choose a tool
+that fits your
+context
+----
+Example Toolchains
+----
+{{#c|"Ruby Style"}}
+ {{#b|➸ Cucumber}}
+ {{#b|➸ Written by devs}}
+----
+{{#att|Scenario:}} Add two numbers
+ {{#tag|Given}} I have entered 50
+ {{#tag|And}} I have entered 70
+ {{#tag|When}} I press add
+ {{#tag|Then}} The result should be 120
+----
+{{#c|"Sophos Style"}}
+ {{#b|➸ YAML}}
+ {{#b|➸ Test::A8N}}
+ {{#b|➸ Written by QA}}
+----
+ NAME:    Admin changes their timezone
+ ID:      admin_changes_tz
+ SUMMARY: Admins need to change their timezone.
+----
+ PRECONDITIONS:
+ - ensure user exists: admin
+ - ensure timezone is: America/Vancouver
+----
+ INSTRUCTIONS:
+     - login:
+         username: admin
+         password: testpass
+     - goto page: Account Settings
+     - verify current timezone is: America/Vancouver
+     - change timezone to: Australia/Brisbane
+     - verify current timezone is: Australia/Brisbane
+----
+ POSTCONDITIONS:
+  - ensure timezone is: America/Vancouver
+----
+{{#c|"Wikitest Style"}}
+ {{#b|➸ Wiki Tables}}
+ {{#b|➸ Keyword Driven}}
+ {{#b|➸ Based on Selenese}}
+ {{#b|➸ Written by Dev and QA}}
+----
+ {{#pre|| open      | /login      |}}
+ {{#pre|| title-is  | Awesometown |}}
+ {{#pre|| text-like | //body      | Welcome to Awesometown |}}
+----
+{{#c|Key Points}}
+----
+No contitionals
+or looping
+----
+Insulate Test Logic
+from {{#i|Test code}}
+----
+Risk Management
+----
+So we can
+☾ ✧ ☄
+sleep well
+----
+{{#c|Remember:}}
+There are no
+"Best Practices"
+----
+{{#c|Just:}}
+Better or Worse
+{{#i|for a given context}}
+----
+{{#c|5 Guidelines}}
+----
+❶ {{#i|Keep Up}} 
+with development
+----
+❷ Make Tradeoffs
+{{#i|with intention}}
+----
+❸ Do the best
+{{#i|with what you have}}
+----
+Be resourceful
+with your team
+----
+Put people in a
+position they get
+excited about
+----
+❹ Balanced 
+Breakfast
+----
+❺ Pay 
+Attention
+----
+Periodical
+Reflection
+----
+Refactor 
+your tests!
+----
+A8N costs $$$
+(So be pragmatic)
+----
+Questions‽
+----
+{{#c|Practical}}
+{{#c|Section}}
+----
+{{#c|OR:}} How our
+Breakfast
+has changed:
+----
+{{#c|Startup Time}}
+ 1 QA
+----
+Unit Tests
+Manual Testing
+Dogfood
+----
+{{#c|Dawn of Selenium}}
+ 1.5 QA
+----
+Selenium IDE
+ ☺ Easy to record
+ ☹ Hard to do anything else
+----
+Non-technical staff
+can write tests
+(but limiting!)
+----
+{{#c|Wikitest}}
+{{#c|Revolution}}
+----
+Built on Selenese
+ {{#b|➽ abstraction}}
+ {{#b|➽ less duplication}}
+ {{#b|➽ standardization}}
+----
+Keyword
+driven
+testing
+{{#s|FTW!}}
+----
+Express Tests
+in a Wiki Table
+----
+{{image src="wikitests.png" width="1234" height="392"}}
+----
+Suits the Team
+ {{#b|➺ Dogfood}}
+ {{#b|➺ Simple edit interface}}
+ {{#b|➺ Low barrier}}
+----
+Read the wiki table
+Execute the commands
+Produce results page
+----
+{{#c|Industrial}}
+Wikitest
+{{#c|Revolution}}
+----
+Interns++
+----
+Jump to 6,000
+test steps
+----
+A8N lags
+Development
+----
+But ...
+----
+No more
+regressions!
+----
+Overheard: 
+{{#b|❝When was the last}}
+{{#b|bug we shipped?❞}}
+{{#s|(nobody knew)}}
+----
+{{#c|The Great}}
+{{#c|Depression}}
+{{#b|(QA layoffs)}}
+----
+Team loses QA
+
+{{#i|What to do?}}
+----
+{{#c|Answer:}}
+Change our
+practice
+----
+{{#c|Team agrees:}}
+Devs will write
+Sunny day A8N
+----
+Make the best
+out of what 
+we have.
+----
+QA can focus
+on exceptions
+----
+Dev can write
+good A8N +
+Infrastructure
+----
+WIN-WIN-WIN
+----
+EOM
+----
+☃ Questions⁇ ☃
+----
+Links
+ ☑ {{#b|http://ingy.net}}
+ ♘ {{#b|http://cukes.info}}
+ ♨ {{#b|http://tinyurl.com/wikitests}}
+ ✈ {{#b|/sporx/}}
+ ♽ {{#b|/Test::A8N/}}
+
+</html:textarea>
+
+<deck flex="1" id="deck">
+ <vbox flex="1" onmousemove="Presentation.onMouseMoveOnCanvas(event);">
+  <toolbox id="canvasToolbar">
+   <toolbar>
+    <toolbarbutton oncommand="Presentation.home()" label="|&lt;&lt;" observes="canBack"/>
+    <toolbarbutton oncommand="Presentation.back()" label="&lt;" observes="canBack"/>
+    <toolbarbutton oncommand="Presentation.forward()" label="&gt;" observes="canForward"/>
+    <toolbarbutton oncommand="Presentation.end()" label="&gt;&gt;|" observes="canForward"/>
+    <toolbarseparator/>
+    <hbox align="center">
+     <textbox id="current_page" size="4" oninput="if (this.value) Presentation.showPage(parseInt(this.value)-1);"/>
+     <description value="/"/>
+     <description id="max_page"/>
+    </hbox>
+    <toolbarseparator/>
+    <vbox flex="2">
+     <spacer flex="1"/>
+     <scrollbar id="scroller" align="center" orient="horizontal" oncommand="Presentation.showPage(parseInt(event.target.getAttribute('curpos')));" onclick="Presentation.showPage(parseInt(event.target.getAttribute('curpos')));" onmousedown="Presentation.onScrollerDragStart();" onmousemove="Presentation.onScrollerDragMove();" onmouseup="Presentation.onScrollerDragDrop();"/>
+     <spacer flex="1"/>
+    </vbox>
+    <toolbarseparator/>
+    <spacer flex="1"/>
+    <toolbarseparator/>
+    <toolbarbutton id="toggleEva" label="Eva" type="checkbox" autoCheck="false" oncommand="Presentation.toggleEvaMode();"/>
+    <toolbarseparator/>
+    <toolbarbutton label="Edit" oncommand="Presentation.toggleEditMode();"/>
+    <toolbarbutton oncommand="Presentation.reload();" label="Reload"/>
+   </toolbar>
+  </toolbox>
+  <vbox flex="1" id="canvas" onclick="Presentation.onPresentationClick(event);">
+   <spacer flex="1"/>
+   <hbox flex="1">
+    <spacer flex="1"/>
+    <vbox id="content"/>
+    <spacer flex="1"/>
+   </hbox>
+   <spacer flex="1"/>
+  </vbox>
+ </vbox>
+ <vbox flex="1" id="edit">
+  <toolbox>
+   <toolbar>
+    <toolbarbutton label="New Page" oncommand="Presentation.addPage()"/>
+    <spacer flex="1"/>
+    <toolbarseparator/>
+    <toolbarbutton label="View" oncommand="Presentation.toggleEditMode();"/>
+    <toolbarbutton oncommand="Presentation.reload();" label="Reload"/>
+   </toolbar>
+  </toolbox>
+  <textbox id="textField" flex="1" multiline="true" oninput="Presentation.onEdit()"/>
+  <hbox collapsed="true">
+   <iframe id="dataLoader" onload="if (window.Presentation) Presentation.onDataLoad();"/>
+  </hbox>
+ </vbox>
+</deck>
+
+<broadcasterset>
+ <broadcaster id="canBack"/>
+ <broadcaster id="canForward"/>
+</broadcasterset>
+
+<commandset>
+ <command id="cmd_forward" oncommand="if (Presentation.isPresentationMode) Presentation.forward();"/>
+ <command id="cmd_back" oncommand="if (Presentation.isPresentationMode) Presentation.back();"/>
+ <command id="cmd_home" oncommand="if (Presentation.isPresentationMode) Presentation.home();"/>
+ <command id="cmd_end" oncommand="if (Presentation.isPresentationMode) Presentation.end();"/>
+</commandset>
+
+<keyset>
+ <key keycode="VK_ENTER"      command="cmd_forward"/>
+ <key keycode="VK_RETURN"     command="cmd_forward"/>
+ <key keycode="VK_PAGE_DOWN"  command="cmd_forward"/>
+ <key keycode="VK_RIGHT"      command="cmd_forward"/>
+ <key keycode="VK_DOWN"       command="cmd_forward"/>
+ <!--key keycode="VK_BACK_SPACE" command="cmd_back"/-->
+ <key keycode="VK_UP"         command="cmd_back"/>
+ <key keycode="VK_PAGE_UP"    command="cmd_back"/>
+ <!--<key keycode="VK_BACK_UP"    command="cmd_back"/>-->
+ <!--<key keycode="VK_BACK_LEFT"  command="cmd_back"/>-->
+ <key keycode="VK_HOME"       command="cmd_home"/>
+ <!--<key keycode="VK_END"        command="cmd_end"/>-->
+ <key key="n" modifiers="accel" oncommand="Presentation.addPage();"/>
+ <key key="r" modifiers="accel" oncommand="window.location.reload();"/>
+ <key key="e" modifiers="accel" oncommand="Presentation.toggleEditMode();"/>
+ <key key="a" modifiers="accel" oncommand="Presentation.toggleEvaMode();"/>
+</keyset>
+
+
+<script src="lib/sporx.js" type="application/x-javascript" />
+
+</page>
+
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is the Takahashi-Method-based Presentation Tool in XUL.
+   -
+   - The Initial Developer of the Original Code is SHIMODA Hiroshi.
+   - Portions created by the Initial Developer are Copyright (C) 2005
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s): SHIMODA Hiroshi <piro@p.club.ne.jp>
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
